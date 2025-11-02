@@ -1,0 +1,42 @@
+name: Code Formatting Enforcement
+
+on:
+  pull_request:
+    branches: [main, develop]
+
+jobs:
+  # ------------------ FORMAT CHECK ------------------
+  check-format:
+    name: Verify Code Formatting
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # ---------- Node.js Formatting ----------
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install Node.js dependencies
+        run: npm ci
+
+      - name: Run Prettier check
+        run: npx prettier --check .
+
+      - name: Run ESLint check
+        run: npx eslint . --max-warnings=0
+
+      # ---------- Python Formatting ----------
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: Install Black
+        run: pip install black
+
+      - name: Run Black check
+        run: black --check .
