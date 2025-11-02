@@ -1,0 +1,17 @@
+{
+  "name": "unguided-uc---1-code-formatting-enforcement",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "format:check": "prettier --check . && eslint .",
+    "format:fix": "prettier --write . && eslint --fix ."
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "eslint": "^9.39.0",
+    "prettier": "^3.6.2"
+  }
+}
