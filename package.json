@@ -3,14 +3,15 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "format:check": "prettier --check . && eslint .",
-    "format:fix": "prettier --write . && eslint --fix ."
+    "format:fix": "prettier --write . && eslint --fix .",
+    "format:check": "prettier --check . && eslint ."
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "description": "",
   "devDependencies": {
+    "@eslint/js": "^9.39.0",
     "eslint": "^9.39.0",
     "prettier": "^3.6.2"
   }
